@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{% block title %}
+    Top 10 #hashtags
+{% endblock%}
+{% block style %}
+<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='most_used.css') }}">
+{% endblock%}
+{% block body %}
+    <h1 class="title">Top 10 #hashtags</h1>
+    <div class="tables">
+    {% for name in most_used_hashtags_dict.keys() %}
+        <table>
+            <tr>
+                <th><span class="blue-bird"><i class="fa fa-twitter" aria-hidden="true"></i></span> {{ name }}</th>
+            </tr>
+            {% for hashtags, times in most_used_hashtags_dict[name] %}
+                <tr>
+                    <td>{{ hashtags }} <span class="badge">{{ times }}</span></td>
+                </tr>
+            {% endfor %}        
+        </table>
+    {% endfor %}
+    </div>
+    <p class="footer">About: These table's consist of the top 10 hashtags in descending order made by twitter users.</p>
+{% endblock%}
