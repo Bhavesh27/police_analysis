@@ -13,6 +13,7 @@ tweet_users = ['DelhiPolice', 'MumbaiPolice',
 
 # open the given Mongolab Uri if available or open localhost
 url = os.getenv('MONGOLAB_URI', 'mongodb://localhost:27017')
+print url
 
 @app.route('/')
 def welcome():

@@ -4,7 +4,7 @@
 
 ### Solution: Web App = Flask + Heroku + MongoDB/MongoLab + Selenium + Google Charts.
 
-### Link to Web App: [https://akul-precog.herokuapp.com/](https://akul-precog.herokuapp.com/)
+### Link to Web App: [https://police-analysis.herokuapp.com/](https://police-analysis.herokuapp.com/)
 
 #### Step 0: Initial Environment Setup
 
@@ -44,7 +44,7 @@
 
 - Login in the git repo using heroku: `heroku login`
 
-- Create Heroku app: `heroku create akul-precog`
+- Create Heroku app: `heroku create police_analysis`
 
 - Set the MongoLab URI for Heroku app: `heroku config:set MONGOLAB_URI="mongodb://USERNAME:PASSWORD@MONGOLAB_URI/twitter_police_db"`
 

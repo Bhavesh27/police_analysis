@@ -3,17 +3,18 @@ import tweepy
 import sys
 from pymongo import MongoClient
 
-try:
-    with open("credentials.json") as file:
-        credentials = json.load(file)[0]
-except Exception, e:
-    print 'Can\'t load Credentials.\nError: ', e
-    sys.exit()
 
-CONSUMER_KEY = credentials['consumerkey']
-CONSUMER_SECRET = credentials['consumersecret']
-ACCESS_TOKEN = credentials['accesstoken']
-ACCESS_TOKEN_SECRET = credentials['accesstokensecret']
+# try:
+    # with open("credentials.json") as file:
+        # credentials = json.load(file)[0]
+# except Exception, e:
+    # print 'Can\'t load Credentials.\nError: ', e
+    # sys.exit() 
+
+CONSUMER_KEY =          #credentials['consumerkey']
+CONSUMER_SECRET =       #credentials['consumersecret']
+ACCESS_TOKEN =          #credentials['accesstoken']
+ACCESS_TOKEN_SECRET =   #credentials['accesstokensecret']
 
 
 tweet_users = ['DelhiPolice', 'MumbaiPolice',
