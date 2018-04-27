@@ -1,4 +1,4 @@
-# Task A solution for PrecogSummer2017
+# Indian Police Twitter Analysis
 
 ### Problem: Collect tweets (not retweets/replies) of 5 verified Indian police accounts, and do Data Analysis, Data Visualization and Sentiment Analysis and show the results and graphs in a web app.
 
@@ -12,7 +12,7 @@
 
 - Setup virtualenv: `virtualenv venv`
 
-- Activate virtualenv: `source venv/bin/activate`
+- Activate virtualenv: `cd venv\scripts && activate`
 
 - Install required libraries: `pip install -r requirements.txt`
 
