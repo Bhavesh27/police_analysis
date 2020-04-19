@@ -91,3 +91,5 @@ ENV/
 
 # Credentials for Twitter API
 credentials.json
+
+.vscode

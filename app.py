@@ -90,7 +90,7 @@ def most_engagement():
             tweets, key=lambda x: x['like'] + x['retweets'], reverse=True)
 
         # check for image, text, or both
-        for i in tw[:len(tw) / 10]:
+        for i in tw[:len(tw) // 10]:
             if i['media']:
                 if i['content']:
                     top_liked_tweets['image+text'] += 1
