@@ -63,7 +63,8 @@ def most_used_hashtags():
 
         hashtags_list = []
         for i in collection.find({}):
-            hashtags_list.extend(i['hashtags'])
+            if 'hashtags' in i.keys():
+                hashtags_list.extend(i['hashtags'])
 
         top_ten_hashtags = Counter(hashtags_list).most_common(10)
         most_used_hashtags_dict[police_handle] = top_ten_hashtags
@@ -91,8 +92,8 @@ def most_engagement():
 
         # check for image, text, or both
         for i in tw[:len(tw) // 10]:
-            if i['media']:
-                if i['content']:
+            if 'media' in i.keys():
+                if 'content' in i.keys():
                     top_liked_tweets['image+text'] += 1
                 else:
                     top_liked_tweets['image'] += 1
@@ -100,8 +101,8 @@ def most_engagement():
                 top_liked_tweets['text'] += 1
 
         # most engaged tweet type
-        if tw[0]['media']:
-            if tw[0]['content']:
+        if 'media' in tw[0].keys():
+            if 'content' in tw[0].keys():
                 highest_tweet_type[police_handle] = 'image+text'
             else:
                 highest_tweet_type[police_handle] = 'image'
@@ -132,8 +133,8 @@ def type():
 
         # check for image, text, or both
         for i in tweets:
-            if i['media']:
-                if i['content']:
+            if 'media' in i.keys():
+                if 'content' in i.keys():
                     liked_tweets['image+text'] += 1
                 else:
                     liked_tweets['image'] += 1
@@ -197,20 +198,21 @@ def like_on_tweets():
         likes = {'500': 0, '300': 0, '100': 0,
                  '50': 0, '20': 0, '10': 0, '0': 0}
         for i in collection.find():
-            like = i['like']
-            if like >= 500:
-                likes['500'] += 1
-            if like >= 300:
-                likes['300'] += 1
-            if like >= 100:
-                likes['100'] += 1
-            if like >= 50:
-                likes['50'] += 1
-            if like >= 20:
-                likes['20'] += 1
-            if like >= 10:
-                likes['10'] += 1
-            likes['0'] += 1
+            if 'like' in i.keys():
+                like = i['like']
+                if like >= 500:
+                    likes['500'] += 1
+                if like >= 300:
+                    likes['300'] += 1
+                if like >= 100:
+                    likes['100'] += 1
+                if like >= 50:
+                    likes['50'] += 1
+                if like >= 20:
+                    likes['20'] += 1
+                if like >= 10:
+                    likes['10'] += 1
+                likes['0'] += 1
 
         like_dict[police_handle] = likes
     # send the data to create table
@@ -231,20 +233,21 @@ def retweet_on_tweets():
         retweets = {'500': 0, '300': 0, '100': 0,
                     '50': 0, '20': 0, '10': 0, '0': 0}
         for i in collection.find():
-            retweet = i['retweets']
-            if retweet >= 500:
-                retweets['500'] += 1
-            if retweet >= 300:
-                retweets['300'] += 1
-            if retweet >= 100:
-                retweets['100'] += 1
-            if retweet >= 50:
-                retweets['50'] += 1
-            if retweet >= 20:
-                retweets['20'] += 1
-            if retweet >= 10:
-                retweets['10'] += 1
-            retweets['0'] += 1
+            if 'retweets' in i.keys():
+                retweet = i['retweets']
+                if retweet >= 500:
+                    retweets['500'] += 1
+                if retweet >= 300:
+                    retweets['300'] += 1
+                if retweet >= 100:
+                    retweets['100'] += 1
+                if retweet >= 50:
+                    retweets['50'] += 1
+                if retweet >= 20:
+                    retweets['20'] += 1
+                if retweet >= 10:
+                    retweets['10'] += 1
+                retweets['0'] += 1
 
         retweet_dict[police_handle] = retweets
     # send the data to create table  
@@ -265,20 +268,21 @@ def reply_on_tweets():
         replies = {'500': 0, '300': 0, '100': 0,
                    '50': 0, '20': 0, '10': 0, '0': 0}
         for i in collection.find():
-            reply = i['replies']
-            if reply >= 500:
-                replies['500'] += 1
-            if reply >= 300:
-                replies['300'] += 1
-            if reply >= 100:
-                replies['100'] += 1
-            if reply >= 50:
-                replies['50'] += 1
-            if reply >= 20:
-                replies['20'] += 1
-            if reply >= 10:
-                replies['10'] += 1
-            replies['0'] += 1
+            if 'replies' in i.keys():
+                reply = i['replies']
+                if reply >= 500:
+                    replies['500'] += 1
+                if reply >= 300:
+                    replies['300'] += 1
+                if reply >= 100:
+                    replies['100'] += 1
+                if reply >= 50:
+                    replies['50'] += 1
+                if reply >= 20:
+                    replies['20'] += 1
+                if reply >= 10:
+                    replies['10'] += 1
+                replies['0'] += 1
 
         reply_dict[police_handle] = replies
     # send the data to create table
